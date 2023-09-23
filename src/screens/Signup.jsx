@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { NormalInput } from "../../components/Input";
-import { SignUp } from "../Redux/actions";
+import { SetAuthenticated, SignUp } from "../Redux/actions";
 import { COLORS, DIMENSIONS, FONT, ROUTES } from "../assets/constants";
 
 const Signup = ({navigation}) => {
@@ -28,9 +28,10 @@ const Signup = ({navigation}) => {
       setErr({...err, password: 'Password cannot be empty'});
     } else {
       setErr({...err, email: '', password: '', msg: ''});
-      navigation.navigate("Home");
+      navigation.navigate('Home');
       const userData = {name, email, password};
       dispatch(SignUp(userData));
+      dispatch(SetAuthenticated(true));
     }
   };
   return (
@@ -123,7 +124,7 @@ const Signup = ({navigation}) => {
           <Text style={{...FONT.subTitle}}>Already have an account? </Text>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Login");
+              navigation.navigate('Login');
             }}>
             <Text style={{...FONT.subTitle, fontWeight: '800'}}>Login</Text>
           </TouchableOpacity>

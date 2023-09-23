@@ -1,17 +1,9 @@
 import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { NormalInput } from "../../components/Input";
-import { SignIn } from "../Redux/actions";
+import { SetAuthenticated, SignIn } from "../Redux/actions";
 import { COLORS, DIMENSIONS, FONT, ROUTES } from "../assets/constants";
-
-import {
-
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -23,25 +15,21 @@ const Login = ({navigation}) => {
   });
   const dispatch = useDispatch();
 
- 
-
-
   const handleSignIn = () => {
-     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-     if (email === '') {
-       setErr({...err, email: 'Email Cannot be Empty'});
-     } else if (reg.test(email) === false) {
-       setErr({...err, email: 'Enter a valid email address'});
-     } else if (password === '') {
-       setErr({...err, password: 'Password cannot be empty'});
-     } else {
-       setErr({...err, email: '', password: '', msg: ''});
-       navigation.navigate("Home");
-       const userData = {email, password};
-       dispatch(SignIn(userData));
-
-     }
-  
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (email === '') {
+      setErr({...err, email: 'Email Cannot be Empty'});
+    } else if (reg.test(email) === false) {
+      setErr({...err, email: 'Enter a valid email address'});
+    } else if (password === '') {
+      setErr({...err, password: 'Password cannot be empty'});
+    } else {
+      setErr({...err, email: '', password: '', msg: ''});
+      navigation.navigate('Home');
+      const userData = {email, password};
+      dispatch(SignIn(userData));
+      dispatch(SetAuthenticated(true));
+    }
   };
 
   return (
@@ -65,7 +53,6 @@ const Login = ({navigation}) => {
           onChangeText={text => {
             setEmail(text);
             setErr({...err, email: '', msg: ''});
-          
           }}
           value={email}
           autoCapitalize="none"
@@ -118,7 +105,7 @@ const Login = ({navigation}) => {
           <Text style={{...FONT.subTitle}}>Don't have an account? </Text>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Signup");
+              navigation.navigate('Signup');
             }}>
             <Text style={{...FONT.subTitle, fontWeight: '800'}}>Signup</Text>
           </TouchableOpacity>
@@ -126,7 +113,7 @@ const Login = ({navigation}) => {
       </View>
     </View>
   );
-}
+};
 
 export default Login;
 const styles = StyleSheet.create({
