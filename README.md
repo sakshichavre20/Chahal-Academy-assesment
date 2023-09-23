@@ -2,6 +2,12 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
+
+
+https://github.com/sakshichavre20/Chahal-Academy-assesment/assets/68509679/bfa4dbe0-4c9b-4bd2-a070-6dfc3bd51312
+
+
+
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
