@@ -4,7 +4,9 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 
 
-https://github.com/sakshichavre20/Chahal-Academy-assesment/assets/68509679/bfa4dbe0-4c9b-4bd2-a070-6dfc3bd51312
+
+https://github.com/sakshichavre20/Chahal-Academy-assesment/assets/68509679/d37b01dd-83b8-43d7-8362-79f4b4d71726
+
 
 
 
